@@ -4,7 +4,7 @@
 }
 body{
     margin: 0;
-    background-image:url("/pic/Untitled\ design\ \(1\).png");
+    background-image:url("../pic/friendly-bg.png");
 }
 html{
     -webkit-text-size-adjust: 100%;

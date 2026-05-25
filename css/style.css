@@ -7,7 +7,7 @@ html{
 }
 body{
     margin: 0;
-    background-image:url("/pic/Untitled\ design\ \(1\).png");
+    background-image:url("../pic/friendly-bg.png");
 }
 #container{
     background-color: #f8f3f9;
