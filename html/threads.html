@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/Friendly (1) (1).png">
+    <link rel="stylesheet" href="/css/threads.css">
+    <title>Friendly C++</title>
+</head>
+<body>
+     <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/Friendly copy 2 (1).png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="/html/index.html" id="home">Home</a>
+                    <a href="/html/libraries.html">Libraries</a>
+                    <a href="/html/about.html">About page</a>
+                    <a href="/html/contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br><br><br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Thread</h3>
+                <ul>
+                    <li>Info-box</li>
+                    <br>
+                    <li>How it works</li>
+                    <br>
+                    <li>Common Operations</li>
+                    <br>
+                    <li>Real Use Case</li>
+                    <br>
+                    <li>Important Note</li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-para">
+                <h1>threads</h1>
+                <p>In C++, <strong>threads</strong> basically lets you to perform <strong>multiple tasks</strong> simultaneosly and efficiently</p>
+                <br>
+                
+                <h2>Quick Info Box:</h2><br>
+                <div class="info-box">
+                    <p><strong>Header:</strong> &lt;thread&gt;</p>
+                    <p><strong>Type:</strong> Concurrency</p> 
+                    <p><strong>Best for:</strong> Running tasks in parallel</p> 
+                </div>
+                <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>How it works</h2>
+            <br>
+            <p>
+                Normally, a program runs step by step:
+            </p>
+            <div class="flow">
+                <span class="s1">Task 1</span>
+                <span>→</span>
+                <span class="s2"> Task 2</span>
+                <span>→</span> 
+                <span class="s3"> Task 3</span>    
+            </div><br><br>
+            <p>With threads, you can run tasks in <strong>parallel:</strong></p>
+            <div class="flow">
+                <span class="s1">Task 1⎤</span>
+                <br>
+                <span><span id="odd">"""""""</span>├ → running at the same time</span>
+                <br>
+                <span class="s2"> Task 2⎦</span>
+                <br>
+                <span class="s3"> Task 3 (also running)</span>    
+            </div><br><br>
+            <p>So instead of waiting for one task to finish, you <strong>split work into smaller parts that run concurrently.</strong></p>
+
+            <p>Here is an <b>example</b> for further comprehension-</p>
+            <br>
+            <br>
+            <div id="example_container">
+            <div id="example_header">
+                <h3>Example:</h3>
+            </div>
+            <div id="example">
+            <p>
+            #include &lt;thread&gt;;<br>
+            #include &lt;iostream&gt;;<br>
+            <br>
+            void printHello(){<br>
+            <span class="example_deco">,,,,,,,</span>std::cout &lt;&lt; "Hello from thread! \n";<br>
+            } <br>
+            <br>
+            int main(){<br>
+            <span class="example_deco">,,,,,,,</span>std::thread t(printHello);<br>
+            <br>
+            <span class="example_deco">,,,,,,,</span>t.join();<br>
+            <br>
+            <span class="example_deco">,,,,,,,</span>std::cout &lt;&lt; "Main function done \n"<br>
+            <span class="example_deco">,,,,,,,</span>return 0;<br>
+            }</p>
+            </div>
+            </div>
+            <div id="output_container">
+            <div id="output_header">
+                <h3>Output</h3>
+            </div>
+            <div id="output_box">   
+                <b>Hello from thread!</b> <br>// The thread t starts and runs printHello()<br><br>
+                // t.join() makes the main function wait<br><br>// So the thread finishes first<br><br>
+                <b>Main function done</b> <br> // Then the "Main function done"
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Common Operations</h2><br>
+            <ul class="ops">
+                <li>
+                    <strong>std::thread()</strong> → Creates a new thread(worker) that runs task() separately <br><br><br>
+                    <div class="vector_visual">
+                        <span>Main Thread</span>
+                        <span> → </span>
+                        <span>starts</span>
+                        <span> → </span>
+                        <span>[New Thread running task()]</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::thread t(task);</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>join()</strong> → Main thread waits until the worker thread is done <br><br><br>
+                    <div class="vector_visual">
+                        <span>Worker Therad ↴ (finishes)</span><br>
+                        <span id="odd2">""""""""""""""""""""</span><span>├-- waiting...</span><br>
+                        <span>Main Thread ⎽⎽⏌</span><br><br>
+                        <span>Then main continues</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">t.join();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>detach()</strong> → Run threads independently <br><br><br>
+                    <div class="vector_visual">
+                        <span>Main Thread</span>
+                        <span> --------▻ </span>
+                        <span>continues immediatly</span><br><br>
+                        <span>Worker Thread</span>
+                        <span> --------▻ </span>
+                        <span>runs on its own (independent)</span>
+                    </div><br><br>  
+                    <ul>
+                        <li>Thread <b>runs in the background</b>.</li>
+                        <li>You <b>can't control</b> it anymore after detaching</li>
+                     </ul><br>
+                     <p>Example:<span id="odd">""</span><span class="example_code_line">t.detach();</span></p><br>
+                </li><br><br>
+                <br>
+                <li>
+                    <strong>get_id()</strong> → Returns the id of the thread (useful for debugging and tracking threads) <br><br><br>
+                    <div class="vector_visual">
+                        <span>Thread A → ID: 101</span><br><br>
+                        <span>Thread B → ID: 102</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::cout &lt;&lt; t.get_id();</span></p><br>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <div class="real_use">
+                <h2>Real Use Case</h2><br>
+                <b>Threads</b> are very popular in <b>real-world</b> projects. <br> 
+                It is used when your program needs to do <b>multiple things at the same time without slowing down.</b><br>
+                <strong>Some use case:</strong><br><br><br>
+                <ol class="use_list">
+                    <li>
+                        <strong>Games:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span class="labels2"><b>Game loop:</b></span><br><br>
+                            <span> - Render grapics</span><br><br>
+                            <span> - Handle player input </span><br><br>
+                            <span> - Play sound </span>
+                        </div><br><br>
+                        <h3>How threads help - </h3>
+                        <div class="vector_usage">
+                            <span>Thread 1 → Grapics(rendering)</span><br><br>
+                            <span>Thread 2 → Keyboard/Mouse input</span><br><br>
+                            <span>Thread 3 → Sound/music</span>
+                        </div><br><br>
+                        <p>Result: Smooth gameplay (no lag when doing multiple tasks).</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Websites / Apps:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>You click "Login"</span>
+                        </div><br><br>
+                        <h3>Behind the scenes - </h3>
+                        <div class="vector_usage">
+                            <span>Thread 1 → UI (button, animation)</span><br><br>
+                            <span>Thread 2 → Send request to server</span><br><br>
+                            <span>Thread 3 → Load data</span>
+                        </div><br><br>
+                        <p>Result: App doesn't freeze while loading.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Downloading Files:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>Downloading a large file</span>
+                        </div><br><br>
+                        <h3>With threads - </h3>
+                        <div class="vector_usage">
+                            <span>Thread 1 → Download file</span><br><br>
+                            <span>Thread 2 → Show progress bar</span><br><br>
+                            <span>Thread 3 → Let user browse app</span>
+                        </div><br><br>
+                        <p>Result: You can still use the app while downloading.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Image / Video Processing:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>Editing a photo or rendering video</span>
+                        </div><br><br>
+                        <h3>With threads - </h3>
+                        <div class="vector_usage">
+                            <span>Thread 1 → Process top half</span><br><br>
+                            <span>Thread 2 → Process bottom half</span>
+                        </div><br><br>
+                        <p>Result: Much faster processing.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Chat Application:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>You use Messenger / WhatsApp</span>
+                        </div><br><br>
+                        <h3>With threads - </h3>
+                        <div class="vector_usage">
+                            <span>Thread 1 → Send message</span><br><br>
+                            <span>Thread 2 → Receive messages</span><br><br>
+                            <span>Thread 3 → Update UI</span>
+                        </div><br><br>
+                        <p>Result: Real-time chatting without delay.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Servers(Very Important) :</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>Multiple users accessing a website</span>
+                        </div><br><br>
+                        <h3>In this case threads - </h3>
+                        <div class="vector_usage">
+                            <span>User A - Threads 1</span><br><br>
+                            <span>User B - Threads 2</span><br><br>
+                            <span>User C - Threads 3</span>
+                        </div><br><br>
+                        <p>Result: Many users can use the service at the same time.</p><br>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <br>
+            <div class="Imp_note">
+                <h2>Important Note</h2>
+                <p>
+                    Always use <strong>join()</strong> or <strong>detach()</strong>. <br><br>
+                    Failing to do so can crash your program.
+                </p>
+            </div>
+        </div>
+        
+    </main>
+    <div class="next-prev">
+        <a href="/html/libraries.html" id="link_back" class="nav_button">← Back to libraries</a>
+        <a href="/html/chrono.html" id="link_forward" class="nav_button">Next: chrono →</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/Friendly (1) (1).png">
+    <title>Friendly C++</title>
+    <link rel="stylesheet" href="/css/chrono.css">
+</head>
+<body>
+    <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/Friendly copy 2 (1).png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="/html/index.html" id="home">Home</a>
+                    <a href="/html/libraries.html">Libraries</a>
+                    <a href="/html/about.html">About page</a>
+                    <a href="/html/contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br><br><br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Chrono</h3>
+                <ul>
+                    <li>Info-box</li>
+                    <br>
+                    <li>Concept</li>
+                    <br>
+                    <li>Common Operations</li>
+                    <br>
+                    <li>Real Use Case</li>
+                    <br>
+                    <li>Important Note</li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-para">
+                <h1>chrono</h1>
+                <p>Think of <strong>chrono</strong> in C++ as your program’s built-in <strong>clock + stopwatch + calendar</strong></p>
+                <br>
+                
+                <h2>Quick Info Box:</h2><br>
+                <div class="info-box">
+                    <p><strong>Header:</strong> &lt;chrono&gt;</p>
+                    <p><strong>Type:</strong> Utilities</p> 
+                    <p><strong>Best for:</strong> Measuring execution time, delays</p> 
+                </div>
+                <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Concept</h2>
+            <br>
+            <div class="flow">
+                <span class="s1">Start</span>
+                <span>→</span>
+                <span class="s2"> (Running Code) </span>
+                <span>→</span> 
+                <span class="s3"> End </span> <br>
+                <span id="odd">"""""""""""""""</span><span>↓</span> <br>
+                <span id="odd">"""""</span><span class="s1"> (Duration = End - Start) </span>    
+            </div><br><br>
+            <p>In other words, chrono library lets you <b>measure the time</b> in the program.</p>
+            <p>Here is an <b>example</b> for further comprehension-</p>
+            <br>
+            <br>
+            
+            <div id="example_container">
+            <div id="example_header">
+                <h3>Example:</h3>
+            </div>
+            <div id="example">
+            <p>
+            #include &lt;iostream&gt;<br>
+            #include &lt;chrono&gt;<br>
+            <br>
+            int main() {<br>
+            <span class="example_deco">,,,,,,,</span>auto start = std::chrono::high_resolution_clock::now();<br>
+                <br>
+            <span class="example_deco">,,,,,,,</span>for(int i = 0; i &lt; 1000000; i++){<br>
+            <span class="example_deco">,,,,,,,,,,,,,,</span>// some work <br>
+            <span class="example_deco">,,,,,,,</span>} <br>
+                <br>
+            <span class="example_deco">,,,,,,,</span>auto end = std::chrono::high_resolution_clock::now();<br>
+                <br>
+            <span class="example_deco">,,,,,,,</span>auto duration = std::chrono::duration_cast <br>
+            <span class="example_deco">,,,,,,,</span>&lt;std::chrono::millisecond&gt;(end - start); <br>
+                <br>
+            <span class="example_deco">,,,,,,,</span>std::cout << duration.count() << " ms\n";<br>
+            <span class="example_deco">,,,,,,,</span>return 0;<br>
+            }</p>
+            </div>
+            </div>
+            <div id="output_container">
+            <div id="output_header">
+                <h3>Output</h3>
+            </div>
+            <div id="output_box">   
+                <strong>2 ms </strong><br><br>// this is the time it takes to execute this program<br>
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Common Operations</h2><br>
+            <ul class="ops">
+                <li>
+                    <strong>now()</strong> → Get current time <br><br><br>
+                    <div class="vector_visual">
+                        <span>[ CLOCK ]</span><br>
+                        <span id="odd2">""""</span><span> ↓ </span><br>
+                        <span id="odd2">""</span><span> now = </span><span class="labels"> steady_clock::now()</span>
+                        <br><br><br>
+                        <span class="labels2">Timeline:</span><br><br>
+                        <span> ●╍╍╍╍╍●╍╍╍╍╍●╍╍╍╍╍● </span><br>
+                         <span id="odd2">""""""""""</span><span>↑</span><br>
+                         <span id="odd2">"""""""</span><span>(now)</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">auto t = steady_clock::now();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>duration_cast() </strong> → Convert time units <br><br><br>
+                    <div class="vector_visual">
+                        <span><b>Raw Duration</b></span>
+                        <span> → </span>
+                        <span><b>Convert</b></span>
+                        <span> → </span>
+                        <span><b>Readable Time</b></span><br><br><br>
+                        <span id="odd2">""""</span><span>2000000 ns(nanosecond)</span>
+                        <span> → </span>
+                        <span>2 ms(millisecond)</span><span id="odd2">""""</span><br><br>
+                        <span id="odd2">""""</span><span>2000 ms(millisecond)</span>
+                        <span> → </span>
+                        <span>2 s(second)</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">auto ms = std::chrono::duration_cast&lt;std::chrono::millisecond&gt;(time);</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>count()</strong> → Get numeric value <br><br><br>
+                    <div class="vector_visual">
+                        <span>duration</span>
+                        <span> → </span>
+                        <span>5</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::cout &lt;&lt; ms.count();</span></p><br>
+                </li><br> 
+                <br>
+                <li>
+                    <strong>Create Duration</strong> → Make a time value <br><br><br>
+                    <div class="vector_visual">
+                        <span class="labels3">Time Value:</span><br><br>
+                        <span>[ 5 seconds ]</span><br>
+                        <span>[ 100 ms ]</span><br>
+                        <span>[ 1 minute ]</span><br>
+                    </div><br><br>
+                    <p><span class="code_head"><b>Code:</b></span></p>
+                    <div class="code_snippet">
+                        <span class="code"> std::chrono::seconds(5) </span><br>
+                        <span class="code"> std::chrono::milliseconds(100) </span><br>
+                        <span class="code"> std::chrono::minute(1) </span>
+                    </div><br><br>
+                </li><br>
+                <br>
+                <li>
+                    <strong>sleep_for()</strong> → Wait for some time <br><br><br>
+                    <div class="vector_visual">
+                        <span><b>Running</b></span>
+                        <span> . . . </span>
+                        <span><b>⏳ WAIT ⏳</b></span>
+                        <span> . . . </span>
+                        <span><b>Continue</b><br>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::this_thread::sleep_for(std::chrono::seconds(2))</span></p><br>
+                </li><br> 
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <div class="real_use">
+                <h2>Real Use Case</h2><br>
+                <b>Chrono</b> is used when you need to delay some functions, to measure program's speed etc.<br>
+                In other words, when you need to manipulate timing in your projects, <b>Chrono</b> is very efficient.<br>
+                <strong>Some use case:</strong><br><br><br>
+                <ol class="use_list">
+                    <li>
+                        <strong>Game Development (FPS & Cooldown):</strong>
+                        <p><b>Control time inside a game -</b></p>
+                        <div class="vector_usage">
+                            <span>Shoot</span>
+                            <span> → </span>
+                            <span> wait 2 seconds </span>
+                            <span> → </span>
+                            <span> shoot again </span>
+                        </div>
+                        <br>
+                        <br>
+                        <p>◼ Add <b>cooldowns</b>(no spamming actions)</p>
+                        <p>◼ Maintain <b>constant FPS</b>(smooth gameplay)</p>
+                        <p>Without chrono → game feels laggy or too fast.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Measuring Code Speed (Performance)</strong><br><br>
+                        <p><b>Find out which code is faster -</b></p>
+                        <div class="vector_usage">
+                            <span>Code A ⚙️</span>
+                            <span> → </span>
+                            <span>5 ms</span><br><br>
+                            <span>Code B ⚙️</span>
+                            <span> → </span>
+                            <span>2 ms ✅ faster</span>
+                        </div>
+                        <br>
+                        <br>
+                        <p>◼ Compare <b>algorithms</b></p>
+                        <p>◼ <b>Optimize</b> slow programs</p>
+                        <p>Used by developers to make apps faster.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Backend / Server Timing:</strong><br><br>
+                        <p><b>Do not wait forever for a response -</b></p>
+                        <div class="vector_usage">
+                            <span>Request</span>
+                            <span> → </span>
+                            <span> wait (max 3s)</span>
+                            <span> → </span>
+                            <span> timeout ❌</span>
+                        </div>
+                        <br>
+                        <br>
+                        <p>◼ Set <b>timeout</b> for APIs</p>
+                        <p>◼ Measure <b>response time</b></p>
+                        <p>Prevents apps from freezing.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Multithreading Control</strong><br><br>
+                        <p><b>Pause or schedule tasks -</b></p>
+                        <div class="vector_usage">
+                            <span>Task 1 ✅</span><br><br>
+                            <span> (wait 1 second) </span><br><br>
+                            <span>Task 2 ✅</span><br>
+                        </div>
+                        <br>
+                        <br>
+                        <p>◼ <b>Delay</b> execution</p>
+                        <p>◼ Run tasks at <b>intervals</b></p>
+                        <p>Used in background workers, schedulers</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Timers & Alarms</strong><br><br>
+                        <p><b>Do something after (X) time -</b></p>
+                        <div class="vector_usage">
+                            <span>Start ⏱️</span>
+                            <span> → 10 seconds → </span>
+                            <span>Ring 🔔</span>
+                        </div>
+                        <br>
+                        <br>
+                        <p>◼ <b>Countdown</b> timers</p>
+                        <p>◼ <b>Reminder</b> systems</p>
+                        <p>Like stopwatch or alarm apps</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Animation & UI Timing</strong><br><br>
+                        <p><b>Make things move smoothly -</b></p>
+                        <div class="vector_usage">
+                            <span>Position</span>
+                            <span> →</span>
+                            <span>update every 16ms</span>
+                            <span> →</span>
+                            <span>smooth motion</span>
+                        </div>
+                        <br>
+                        <br>
+                        <p>◼ Control <b>animation speed</b></p>
+                        <p>◼ <b>Sync</b> visuals with time</p>
+                        <p>Used in games, apps, UI effects</p><br>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <br>
+            <div class="Imp_note">
+                <h2>Important Note</h2>
+                <p>
+                Different clocks exist in C++. <br>
+                For most cases, <strong>high_resolution_clock</strong> is used for precise timing.
+                </p>
+            </div>
+        </div>
+        
+    </main>
+    <div class="next-prev">
+        <a href="/html/libraries.html" id="link_back" class="nav_button">← Back to libraries</a>
+        <a href="/html/vector.html" id="link_forward" class="nav_button">Next: vector →</a>
+    </div>
+</body>
+</html>

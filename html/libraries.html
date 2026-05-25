@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/Friendly (1) (1).png">
+    <title>Friendly C++</title>
+    <link rel="stylesheet" href="/css/libraries.css">
+</head>
+<body>
+    <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/Friendly copy 2 (1).png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="/html/index.html" id="home">Home</a>
+                    <a href="/html/libraries.html">Libraries</a>
+                    <a href="/html/about.html">About page</a>
+                    <a href="/html/contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br>
+    <br>
+    <br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Library sidebar</h3>
+                <ul>
+                    <li>STL (Standard Template Library)</li>
+                    <br>
+                    <li>Concurrency</li>
+                    <br>
+                    <li>Utilities</li>
+                </ul>
+
+            </div>
+        </div>
+       <div id="main_para">
+            <h1>Libraries</h1><br>
+            <p>
+                C++ provides a variety of built-in libraries that helps the developers 
+                to code easiliy and efficiently.
+                <br>
+                <br>
+                In this section, you'll learn about three important catagories: 
+                STL(Standard Template Library), Concurrency tools, Utilities libraries.
+                <br>
+                <br>
+                Each of this catagories and libraries in it will be explained in a simple(almost simple) and practical
+                way so you can actually use them in real-world projects, simplify common programming task and 
+                improve performance.
+            </p>
+            <br>
+            <br>
+            <div class="main-element">
+                <h2>STL(Standard Template Library)</h2>
+                <br>
+                <p>
+                    The STL is a part of C++ that provides generic (Template-based) classes and functions.
+                    Think of it as a ready-made toolbox in C++. 
+                    <br>
+                    <br>
+                    Instead of building everything from
+                    scratch( and pulling your hairs out :D ), STL gives you powerful tested components
+                    like vectors, stacks and maps etc. to store data and work with it efficiently.
+                    In other words, you can use the same structure for different data types (int, flloat, string, etc.).
+                    <br>
+                    <h4>Some important and popular components are:</h4>
+                    <ul>
+                        <li><a href="vector.html">vectors</a></li>
+                        <li><a href="">map</a></li>
+                        <li><a href="">unordered-map</a></li>
+                        <li><a href="">set</a></li>
+                    </ul>
+                </p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="main-element">
+                <h2>Concurrency</h2>
+                <br>
+                <p>
+                    Concurrency simply means doing multiple tasks at the same time.
+                    In C++, this multi-tasking ability was first added in C++ 11 to improve the performance
+                    of the programme, it's response time and obviously multi-tasking.
+                    <br><br>
+                    Instead of programme doing:
+                    <br>
+                    <div class="flow">
+                        <span class="s1">Task A</span>
+                        <span>→</span>
+                        <span class="s2">then Task B</span>
+                        <span>→</span> 
+                        <span class="s3">then Task C</span>    
+                    </div>
+                    <br><br><br>
+                    It can do:
+                    <br><br>
+                    <div class="flow">
+                        <span class="s1">Task A</span>
+                        <span>+</span>
+                        <span class="s2">Task B</span>
+                        <span>+</span> 
+                        <span class="s3">Task C</span> 
+                        <span class="s3">(at the same time)</span>   
+                    </div>
+                    <br>
+                    
+                    <h4>There are 4 essential parts in Concurrency that programmers use the most :</h4>
+
+                    <ul>
+                        <li><a href="/html/threads.html">Threads</a></li>
+                        <li><a href="">Mutex</a></li>
+                        <li><a href="">Lock Guards</a></li>
+                        <li><a href="">Future & Async</a></li>
+                    </ul>
+                </p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="main-element">
+                <h2>Utilities</h2><br>
+                <p>
+                    Utilities components are like small helper tools that don't store data (like containers) or
+                    process data (like algorithms), but instead help you manage and organize your code better and makes 
+                    your code safer. Although, this one is a bit overlooked by programmers but it is super useful
+                    once you start writing real code.
+                    <br>
+                    <br>
+                    This small helpers mostly live in headers like - <br><br>
+                    <div class="flow2">
+                        <span><div class="include1">#include</div> &langle;utility&rangle;</span>
+                        <span><div class="include1">#include</div> &langle;tuple&rangle;</span>
+                        <span><div class="include1">#include</div> &langle;optional&rangle;</span>
+                        <span><div class="include1">#include</div> &langle;functional&rangle;</span>
+                        <!--needs css-->
+                    </div>
+                    <br><br>
+                    <h4>Most Useful Utility Tools</h4>
+                    <ul>
+                        <li><a href="/html/chrono.html">chrono</a></li>
+                        <li><a href="">make_pair()</a></li>
+                        <li><a href="">tuple</a></li>
+                        <li><a href="">optional</a></li>
+                        <li><a href="">functions</a></li>
+                        <li><a href="">move</a></li>
+                        <li><a href="">pair</a></li>
+                    </ul>    
+                </p>
+            </div>
+       </div>
+    </main>
+</body>
+</html>

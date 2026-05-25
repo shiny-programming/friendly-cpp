@@ -1,0 +1,312 @@
+<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/Friendly (1) (1).png">
+    <link rel="stylesheet" href="/css/vector.css">
+    <title>Friendly C++</title>
+</head>
+<body>
+    <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/Friendly copy 2 (1).png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="/html/index.html" id="home">Home</a>
+                    <a href="/html/libraries.html">Libraries</a>
+                    <a href="/html/about.html">About page</a>
+                    <a href="/html/contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br>
+    <br>
+    <br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Vector</h3>
+                <ul>
+                    <li>Info-box</li>
+                    <br>
+                    <li>How it works</li>
+                    <br>
+                    <li>Common Operations</li>
+                    <br>
+                    <li>Real Use Case</li>
+                    <br>
+                    <li>Important Note</li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="main-para">
+            <h1>vector</h1>
+            <p>A <b>Dynamic array</b> or a <b>smart list</b> that can grow and shrink automatically as your program runs.</p>
+            <br>
+            
+            <h2>Quick Info Box:</h2><br>
+            <div class="info-box">
+                <p><strong>Header:</strong> &lt;vector&gt;</p>
+                <p><strong>Type:</strong> Container(STL)</p> 
+                <p><strong>Best for:</strong> Dynamic arrays</p> 
+            </div><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>How it works</h2>
+            <br>
+            <p>
+                <b>Vector</b> grows automatically when new elements are added.
+                It also shrinks automatically when an <b>element</b> is removed.
+            </p>
+            <p>Here is an <b>example</b> for further comprehension-</p>
+            <br>
+            <br>
+            <div id="example_container">
+            <div id="example_header">
+                <h3>Example:</h3>
+            </div>
+            <div id="example">
+            <p>
+            #include &lt;vector&gt;;<br>
+            #include &lt;iostream&gt;;<br>
+            <br>
+            int main(){<br>
+            <span class="example_deco">,,,,,,,</span>std::vector&lt;int&gt; v = {1, 2, 3};<br>
+            <span class="example_deco">,,,,,,,</span>v.push_back(4);<br>
+                <br>
+            <span class="example_deco">,,,,,,,</span>for(int i : v){<br>
+            <span class="example_deco">,,,,,,,,,,,,,,</span>cout &lt;&lt; i &lt;&lt; " ";<br>
+            <span class="example_deco">,,,,,,,</span>} <br>
+            <span class="example_deco">,,,,,,,</span>std::cout &lt;&lt; v.size();<br>
+            <span class="example_deco">,,,,,,,</span>return 0;<br>
+            }</p>
+            </div>
+            </div>
+            <div id="output_container">
+            <div id="output_header">
+                <h3>Output</h3>
+            </div>
+            <div id="output_box">   
+                1, 2, 3, 4 <br>// added an element (4) at the end.<br>
+                4 <br>// size of the vector.
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Common Operations</h2><br>
+            <ul class="ops">
+                <li>
+                    <strong>push_back()</strong> → Add an element at the end of the vector <br><br><br>
+                    <div class="vector_visual">
+                        <span>[1]</span>
+                        <span>[2]</span>
+                        <span>[3]</span>
+                        <span> → </span>
+                        <span>push_back(4)</span>
+                        <span> → </span>
+                        <span>[1]</span>
+                        <span>[2]</span>
+                        <span>[3]</span>
+                        <span>[4]</span>
+                    </div><br><br>
+                </li><br><br>
+                <li>
+                    <strong>pop_back()</strong> → Remove last element <br><br><br>
+                    <div class="vector_visual">
+                        <span>[1]</span>
+                        <span>[2]</span>
+                        <span>[3]</span>
+                        <span>[4]</span>
+                        <span> → </span>
+                        <span>v.pop_back(4)</span>
+                        <span> → </span>
+                        <span>[1]</span>
+                        <span>[2]</span>
+                        <span>[3]</span>
+                    </div><br><br>
+                </li><br><br>
+                <li>
+                    <strong>size()</strong> → Return the number of elements <br><br><br>
+                    <div class="vector_visual">
+                        <span>[1]</span>
+                        <span>[2]</span>
+                        <span>[3]</span>
+                        <span>[4]</span>
+                        <span> → </span>
+                        <span>v.size()</span>
+                        <span> → </span>
+                        <span>4</span>
+                    </div><br><br>
+                </li><br> 
+                <br>
+                <li>
+                    <strong>clear()</strong> → Remove all the elements <br><br><br>
+                    <div class="vector_visual">
+                        <span>[1]</span>
+                        <span>[2]</span>
+                        <span>[3]</span>
+                        <span>[4]</span>
+                        <span> → </span>
+                        <span>v.clear()</span>
+                        <span> → </span>
+                        <span>[] (empty vector)</span>
+                    </div><br><br>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <div class="real_use">
+                <h2>Real Use Case</h2><br>
+                <b>Vector</b> is commonly used in <b>real-world</b> projects. <br> 
+                It is very useful when you need a <b>list</b> of things where the <b>size</b> is not fixed.<br>
+                <strong>Some use case:</strong><br><br><br>
+                <ol class="use_list">
+                    <li>
+                        <strong>User Inputs (Most Common):</strong> <br><br>
+                        <p>
+                            When the user types numbers or <b>inputs</b> and you don't know how many they'll enter. <br>
+                            Vectors can be very efficient in these cases, since it can grow <b>automatically</b>.  
+                        </p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Game Development:</strong> <br><br>
+                        <p>In games, you constantly need to <b>add</b> or <b>remove</b> objects: <br></p>
+                        <div class="vector_usage">
+                            <h4>Enemies:</h4>
+                            <span>[ ]</span>
+                            <span> → </span>
+                            <span>[Enemy1]</span>
+                            <span> → </span>
+                            <span>[Enemy1 Enemy2]</span>
+                            <span> → </span>
+                            <span>[Enemy1 Enemy2 Enemy3]</span>
+                            <br>
+                            <h4>Enemy dies:</h4>
+                            <span>[Enemy1 Enemy2 Enemy3]</span>
+                            <span> → </span>
+                            <span>[Enemy1 Enemy3]</span>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <b class="sub_list">👉 Perfect for:</b> <br>
+                        <ul style="content: circle;">
+                            <li>Enemies</li>
+                            <li>Bullets (when Firing or Reloading)</li>
+                            <li>Particles</li>
+                            <li>Hearts (health system in a player or npcs)</li>
+                        </ul><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>To-Do List / App Data:</strong><br><br>
+                        <p>
+                           In this type of application people have to add or remove <b>data</b>. <br>
+                            Vector can be a big help in this case, as it is <b>dynamic</b>. <br><br> 
+                        </p>
+                        <p>User <b>adds</b> tasks: <br></p>
+                        <div class="vector_usage">
+                            <b>Tasks:</b><br>
+                            <span>[ ]</span>
+                            <span> → </span>
+                            <span>["Study"]</span>
+                            <span> → </span>
+                            <span>["Study", "Code"]</span>
+                            <span> → </span>
+                            <span>["Study", "Code", "Sleep"]</span>
+                        </div><br><br><br>
+                        <p>User <b>deletes</b> one: <br></p>
+                        <div class="vector_usage">
+                            <b>Tasks:</b><br>
+                            <span>["Study", "Code", "Sleep"]</span>
+                            <span> → </span>
+                            <span>["Study", "Sleep"]</span>
+                        </div><br>
+                    </li><br>
+                    <br>
+                    <br>
+                    <br>
+                    <li>
+                        <Strong>Grapics/OpenGL:</Strong><br><br>
+                        <p>You can store a number of <b>vertices</b> in a vector, which will create different types of <b>shapes</b> in the <b>window</b><br></p>
+                        <div class="vector_usage">
+                            <b>Triangle(2D): </b>
+                            <span> [(x1, y1), (x2, y2), (x3, y3)]</span><br><br>
+                            <span> Add more details: </span><br>
+                            <span>→</span>
+                            <span>[more points added]</span>
+                        </div>
+                        <br><br>
+                        <p>
+                            In this way, you do not have to <b>hardcode</b> size. <br>
+                            you can build graphical objects dynamically
+                        </p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Scores/ Data Tracking: </strong><br><br>
+                        <p>
+                            Vector can be efficiently used for <b>tracking</b> data or <b>recording</b> scores in a game. <br>
+                        </p>
+                        <div class="vector_usage">
+                            <b>Scores: </b><br>
+                            <span> [100]</span>
+                            <span>→</span>
+                            <span>[100 200]</span>
+                            <span>→</span>
+                            <span>[100 200 300]</span>
+                        </div>
+                        <br><br><br>
+                        <b class="sub_list">👉 Great for:</b>
+                        <ul style="content: circle;">
+                            <li>history</li>
+                            <li>logs</li>
+                            <li>Stats</li>
+                        </ul><br>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <br>
+            <div class="performance">
+                <h2>Performance</h2>
+                <ul>
+                    <li><b>Fast</b> insertion at the end</li>
+                    <li><b>Slow</b> insertion in the middle</li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <div class="mistakes">
+                <h2>Common Mistakes</h2>
+                Sometimes programmers tend to make <b>mistakes</b> while using vectors. <br>
+                While programming be careful of these mistakes ↴ 
+                <ul>
+                    <li>Forgetting that <b>inserting</b> in the <b>middle</b> is slow</li>
+                    <li>Invalidating <b>iterators</b> after <b>resizing</b></li>
+                </ul>
+            </div>
+            <br>
+        </div>
+        
+    </main>
+
+    <div class="next-prev">
+        <a href="/html/libraries.html" id="link_back" class="nav_button">← Back to libraries</a>
+        <a href="/html/threads.html" id="link_forward" class="nav_button">Next: thread →</a>
+    </div>
+    <!--NOW CSS THE WHOLE PAGE-->
+</body>
+</html>
