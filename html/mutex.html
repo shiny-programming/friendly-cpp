@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/friendly-favicon.png">
+    <link rel="stylesheet" href="../css/mutex.css">
+    <title>Friendly C++</title>
+</head>
+<body>
+    <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/friendly-logo.png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="../index.html" id="home">Home</a>
+                    <a href="libraries.html">Libraries</a>
+                    <a href="about.html">About page</a>
+                    <a href="contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br>
+    <br>
+    <br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Mutex</h3>
+                <ul>
+                    <li>Info-box</li>
+                    <br>
+                    <li>How it works</li>
+                    <br>
+                    <li>Common Operations</li>
+                    <br>
+                    <li>Real Use Case</li>
+                    <br>
+                    <li>Important Note</li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="main-para">
+            <h1>mutex</h1>
+            <p>A <b>synchronization</b> tool that prevents multiple threads from <b>accessing shared data</b> at the same time.</p>
+            <br>
+            
+            <h2>Quick Info Box:</h2><br>
+            <div class="info-box">
+                <p><strong>Header:</strong> &lt;mutex&gt;</p>
+                <p><strong>Type:</strong> Thread Synchronization (Concurrency)</p> 
+                <p><strong>Best for:</strong>Protecting shared data from race conditions</p> 
+            </div><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>How it works</h2>
+            <br>
+            <div class="flow">
+                <span class="s1">Thread A</span>
+                <span>-----▻</span>
+                <span class="s1">🔒 Locked Resource</span><br>
+                <span><span id="odd">'''''''''''''''''''''''''''''''''''''</span>|</span><br>
+                <span><span id="odd">'''''''''''''''''''''''''''''''''''''</span>|</span><br> 
+                <span class="s2">Thread B</span>
+                <span>-----▻</span>
+                <span class="s2">⏳ Waiting</span><br><br>
+                <span class="s1">When Thread A finishes:</span><br>
+                <span class="s3">🔓 Unlock</span><br><br>
+                <span class="s2">Thread B</span>
+                <span>-----▻</span>
+                <span class="s2">Access Resource</span>
+
+            </div><br><br>
+            <p>
+                A mutex acts like a key to a room.
+                <ul>
+                    <li>Only one thread can hold the key.</li><br>
+                    <li>Other threads must wait.</li><br>
+                    <li>This prevents data corruption.</li>
+                </ul>
+            </p>
+            <p>Here is an <b>example</b> for further comprehension-</p>
+            <br>
+            <br>
+            <div id="example_container">
+            <div id="example_header">
+                <h3>Example:</h3>
+            </div>
+            <div id="example">
+            <p>
+            #include &lt;map&gt;;<br>
+            #include &lt;iostream&gt;;<br>
+            #include &lt;thread&gt;;<br>
+            <br>
+            std::mutex mtx;<br>
+            <br>
+            void printMessage()<br>
+            {<br>
+            <span class="example_deco">,,,,,,,</span>mtx.lock();<br><br>
+            <span class="example_deco">,,,,,,,</span>std::cout &lt;&lt; "Hello from thread\n";<br><br>
+            <span class="example_deco">,,,,,,,</span>mtx.unlock();<br><br>
+            }<br>
+            <br>
+            int main(){<br>
+            <span class="example_deco">,,,,,,,</span>std::thread t1(printMessage);<br>
+            <span class="example_deco">,,,,,,,</span>std::thread t2(printMessage);<br>
+            <br>
+            <span class="example_deco">,,,,,,,</span>t1.join();<br>
+            <span class="example_deco">,,,,,,,</span>t2.join();<br>
+            <br>
+            }</p>
+            </div>
+            </div>
+            <div id="output_container">
+            <div id="output_header">
+                <h3>Output</h3>
+            </div>
+            <div id="output_box">   
+                <p style="font-family: monospace;">
+                    Hello from thread // Thread 1<br>
+                    Hello from thread // Thread 2
+                   <br>
+                   <br>
+                   // Thread 1 --▻ Print --▻ Done <br>
+                   <span class="example_deco">'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''</span>↓<br>
+                   // Thread 2 --▻ Print --▻ Done
+                </p>
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+                        <h2>Common Operations</h2><br>
+            <ul class="ops">
+                <li>
+                    <strong>lock()</strong> → Locks the mutex.
+                    <p>If another thread already owns the mutex, the current thread must wait.</p><br><br>
+                    <div class="vector_visual">
+                        <span>Thread A <span class="odd2">"""</span> Thread B</span><br>
+                        <span><span class="odd2">''''''</span> | <span class="odd2">'''''''''''''''''''''''''</span> |</span><br>
+                        <span><span class="odd2">'''''.</span>├─lock()  <span class="odd2">'''''''</span> |</span><br>
+                        <span><span class="odd2">''''''</span> | <span class="odd2">'''''''''''''''''''''''''</span>├─lock()</span><br>
+                        <span><span class="odd2">''''''</span> | <span class="odd2">'''''''''''''''''''''''''</span> |</span><br>
+                        <span><span class="odd2">''''''</span> | Working<span class="odd2">''''''</span> | Waiting...</span><br>
+                        <span><span class="odd2">''''''</span> | <span class="odd2">'''''''''''''''''''''''''</span> |</span><br>
+                        <span><span class="odd2">'''''</span> └─ unlock()<span class="odd2">.</span> |</span><br>
+                        <span><span class="odd2">''''''''''''''''''''''''''''''''''.</span> | </span><br>
+                        <span><span class="odd2">'''''''''''''''''''''''''''''''''.</span> └─ Gets the lock </span>
+                        
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">mtx.lock();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>unlock()</strong> → Releases the mutex so another thread can use it. <br><br><br>
+                    <div class="vector_visual">
+                        <span>Mutex: [LOCKED]</span><br>
+                        <span><span class="odd2">''''''''''''''''''''''''''</span>↓</span><br>
+                        <span><span class="odd2">'''''''''''''''''''</span>unlock()</span><br>
+                        <span><span class="odd2">''''''''''''''''''''''''''</span>↓</span><br>
+                        <span>Mutex: [FREE]</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">mtx.unlock();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>try_lock()</strong> → Attempts to lock the mutex.
+                    <p>Unlike lock(), it does <b>not wait.</b></p><br><br>
+                    <div class="vector_visual">
+                        <span>Resource Free?</span><br>
+                        <span><span class="odd2">'''''</span>|</span><br>
+                        <span>Yes --▻ Lock</span><br>
+                        <span>No --▻ Continue</span>
+                    </div><br><br>  
+                    <p><span class="code_head"><b>Code:</b></span></p>
+                     <div class="code_snippet">
+                        <span class="code"> if (mtx.try_lock()) </span><br>
+                        <span>{</span><br>
+                        <span class="code">// Got the lock</span><br>
+                        <span class="code">mtx.unlock();</span><br>
+                        <span class="code">}</span>
+                    </div><br>
+                </li><br><br><br><br>
+                <li>
+                    <strong>std::lock_guard</strong> → Automatically locks and unlocks a mutex.
+                    <p>This is the most beginner-friendly and safest option.</p><br><br>
+                    <div class="vector_visual">
+                        <span>Function Starts</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>lock_guard created</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Mutex Locked</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Do Work</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Function Ends</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Mutex Automatically Unlocked</span><br>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::lock_guard&lt;std::mutex&gt; lock(mtx);</span></p><br>
+                    <p><span class="code_head"><b>Code:</b></span></p>
+                    <div class="code_snippet">
+                        <span class="code">void updateScore()</span><br>
+                        <span>{</span><br>
+                        <span class="code">std::lock_guard&lt;std::mutex&gt; lock(mtx);</span><br>
+                        <span class="code">score++;</span><br>
+                        <span class="code">}</span>
+                    </div><br>
+                </li><br><br><br><br>
+                <li>
+                    <strong>std::unique_lock</strong>→ A more flexible version of lock_guard.
+                    <p>It can lock and unlock multiple times.</p><br><br>
+                    <div class="vector_visual">
+                        <span>unique_lock created</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Lock</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Do Some Work</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Unlock Early</span><br>
+                        <span><span class="odd2">''''''''''''''''''</span>↓</span><br>
+                        <span>Do Other Work</span><br>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::unique_lock&lt;std::mutex&gt; lock(mtx);</span></p><br>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <div class="real_use">
+                <h2>Real Use Case</h2><br>
+                <b>Mutex</b> is useful whenever <b>multiple threads need to access the same data</b> safely.<br><br> 
+                 Without a mutex, threads can interfere with each other and produce incorrect results.<br>
+                 A mutex makes sure only one thread modifies shared data at a time.<br>
+                <strong>Some use case:</strong><br><br><br>
+                <ol class="use_list">
+                    <li>
+                        <strong>Banking App:</strong> <br><br>
+                        <p>Imagine two users transferring money at the same time.</p>
+                        <br>
+                        <h3>Without Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Account Balance = $1000</span><br><br>
+                            <span>Thread A: Withdraw $100</span><br>
+                            <span>Thread B: Withdraw $200</span><br><br>
+                            <span>Both read $1000</span><br><br>
+                            <span>Result: Wrong Balance ❌</span>
+                        </div><br><br>
+                        <h3>With Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Thread A</span><br>
+                            <span><span class="odd3">''''''''''</span>|</span><br>
+                            <span><span class="odd3">'''''''''</span>├─ Lock Account</span><br>
+                            <span><span class="odd3">'''''''''</span>├─ Withdraw $100</span><br>
+                            <span><span class="odd3">'''''''''</span>└─ Unlock</span><br><br><br>
+                            <span>Thread B</span><br>
+                            <span><span class="odd3">''''''''''</span>|</span><br>
+                            <span><span class="odd3">'''''''''</span>├─ Lock Account</span><br>
+                            <span><span class="odd3">'''''''''</span>├─ Withdraw $200</span><br>
+                            <span><span class="odd3">'''''''''</span>└─ Unlock</span><br><br><br>
+                            <span>Result: Correct Balance ✅</span>
+                        </div><br><br>
+                        <p>Result: Prevents money calculations from becoming incorrect.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Multiplayer Game:</strong> <br><br>
+                        <p>Many players may interact with the same game world simultaneously.</p>
+                        <br>
+                        <h3>Without Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Player A ──┐</span><br>
+                            <span><span class="odd3">''''''''''''''''''''''''''''</span>├─ Shared Game Data</span><br>
+                            <span>Player B<span class="odd3">'''</span> ─┤</span><br>
+                            <span><span class="odd3">'''''''''''''''''''''''''''''</span>|</span><br>
+                            <span>Player C<span class="odd3">''''</span>─┘</span>
+                        </div><br><br>
+                        <h3>With Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Player A → Update Position</span><br>
+                            <span><span class="odd3">'''''''''''''''''''''''''''''''''''</span></span>↓<br>
+                            <span><span class="odd3">''''''''''''''''''''''''''</span></span>Mutex Lock<br><br>
+                            <span>Player B → Wait</span><br><br>
+                            <span>Player C → Wait</span>
+                        </div><br><br>
+                        <p>Result: Prevents player stats, inventories, and scores from becoming corrupted.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Logging System:</strong> <br><br>
+                        <p>Applications often have multiple threads writing to the same log file.</p>
+                        <br>
+                        <h3>Without Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>User LoginSucDatabase Connectedcess</span>
+                        </div><br><br>
+                        <h3>With Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>User Login Success</span><br><br>
+                            <span>Database Connected</span>
+                        </div><br><br>
+                        <p>Result: Keeps log files readable and organized.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Web Server Visitor Counter:</strong> <br><br>
+                        <p>A website may track how many visitors have viewed a page.</p>
+                        <br>
+                        <h3>Without Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Visitor 1 ─┐</span><br>
+                            <span>Visitor 2 ─┼─ Counter++</span><br>
+                            <span>Visitor 3 ─┘</span><br><br>
+                            <span>Expected: 1000 visitors</span><br>
+                            <span>Actual:   997 visitors ❌</span>
+                        </div><br><br>
+                        <h3>With Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Lock Counter</span><br><br>
+                            <span>Increase Count</span><br><br>
+                            <span>Unlock Counter</span>
+                        </div><br><br>
+                        <p>Result: Ensures every visit is counted correctly.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Download Manager:</strong> <br><br>
+                        <p>Several files may download simultaneously.</p>
+                        <br>
+                        <h3>Without Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Download 1 ─┐</span><br>
+                            <span>Download 2 ─┼─ Total Progress</span><br>
+                            <span>Download 3 ─┘</span>
+                        </div><br><br>
+                        <h3>With Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Download 1 updates progress</span><br>
+                            <span><span class="odd3">''''''''''''''''''''''''</span>↓</span><br>
+                            <span>Download 2 updates progress</span><br>
+                            <span><span class="odd3">''''''''''''''''''''''''</span>↓</span><br>
+                            <span>Download 3 updates progress</span>
+                        </div><br><br>
+                        <p>Result: Keeps progress percentages accurate.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Factory Production System:</strong> <br><br>
+                        <p>Imagine multiple machines updating the same inventory database.</p>
+                        <br>
+                        <h3>Without Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>Machine A ─┐</span><br>
+                            <span>Machine B ─┼─ Inventory Stock</span><br>
+                            <span>Machine C ─┘</span>
+                        </div><br><br>
+                        <h3>With Mutex - </h3>
+                        <div class="vector_usage">
+                            <span>One machine updates stock</span><br><br>
+                            <span>at a time</span>
+                        </div><br><br>
+                        <p>Result: Prevents incorrect inventory counts.</p><br>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <br>
+            <div class="Imp_note">
+                <h2>Important Note</h2><br>
+                <p>
+                    A mutex is used to prevent two threads from modifying the same data, whcih might produce unexpected result.
+                    <h4>When to Use and Not to Use Mutex:</h4>
+                    <p>✅ Shared variables</p>
+                    <p>✅ Shared files</p>
+                    <p>✅ Shared resources</p>
+                    <p>✅ Multiple threads writing data</p>
+                    <p>❌ Not needed when threads work independently</p>
+                </p>
+            </div>
+        </div>
+    </main>
+    <div class="next-prev">
+        <a href="libraries.html" id="link_back" class="nav_button">← Back to libraries</a>
+        <a href="chrono.html" id="link_forward" class="nav_button">Next: chrono →</a>
+    </div>
+</body>
+</html>

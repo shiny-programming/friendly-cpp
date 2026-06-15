@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/friendly-favicon.png">
+    <link rel="stylesheet" href="../css/map.css">
+    <title>Friendly C++</title>
+</head>
+<body>
+    <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/friendly-logo.png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="../index.html" id="home">Home</a>
+                    <a href="libraries.html">Libraries</a>
+                    <a href="about.html">About page</a>
+                    <a href="contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br>
+    <br>
+    <br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Map</h3>
+                <ul>
+                    <li>Info-box</li>
+                    <br>
+                    <li>How it works</li>
+                    <br>
+                    <li>Common Operations</li>
+                    <br>
+                    <li>Real Use Case</li>
+                    <br>
+                    <li>Important Note</li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="main-para">
+            <h1>map</h1>
+            <p>An <b>Associative container</b> that stores data as key-value pairs in sorted order</p>
+            <br>
+            
+            <h2>Quick Info Box:</h2><br>
+            <div class="info-box">
+                <p><strong>Header:</strong> &lt;map&gt;</p>
+                <p><strong>Type:</strong> Container(STL)</p> 
+                <p><strong>Best for:</strong>Storing key-value pairs</p> 
+            </div><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>How it works</h2>
+            <br>
+            <div class="flow">
+                <span class="s1">Key<span id="odd">,,,,,,,,,,,,,,,,,,</span>Value</span>
+                <br><br><hr><br>
+                <span class="s1">Apple <span id="odd">,,,,</span></span>
+                <span>→</span>
+                <span class="s1"><span id="odd">,,,,,,</span>50</span><br><br>
+                <span class="s2">Banana <span id="odd">,</span></span>
+                <span>→</span>
+                <span class="s2"><span id="odd">,,,,,,</span>30</span><br><br>
+                <span class="s3">Mango <span id="odd">,,</span></span>
+                <span>→</span>
+                <span class="s3"><span id="odd">,,,,,,</span>20</span><br><br>
+            </div><br><br>
+            <p>
+                A <b>map</b> stores data as <b>key-value pairs</b>.
+                <br><br>
+                The key identifies an item.<br>
+                The value stores information associated with that key.
+                <br><br>
+                Each key must be <b>unique</b>.
+            </p>
+            <p>Here is an <b>example</b> for further comprehension-</p>
+            <br>
+            <br>
+            <div id="example_container">
+            <div id="example_header">
+                <h3>Example:</h3>
+            </div>
+            <div id="example">
+            <p>
+            #include &lt;map&gt;;<br>
+            #include &lt;iostream&gt;;<br>
+            <br>
+            int main(){<br>
+            <span class="example_deco">,,,,,,,</span>std::map&lt;std::string, int&gt; fruits;<br>
+            <br>
+            <span class="example_deco">,,,,,,,</span>fruits["Apple"] = 50;<br>
+            <span class="example_deco">,,,,,,,</span>fruits["Banana"] = 30;<br>
+            <span class="example_deco">,,,,,,,</span>fruits["Mango"] = 20;<br>
+            <br>
+            <span class="example_deco">,,,,,,,</span>std::cout &lt;&lt; fruits["Apple"];<br>
+            <span class="example_deco">,,,,,,,</span>return 0;<br>
+            }</p>
+            </div>
+            </div>
+            <div id="output_container">
+            <div id="output_header">
+                <h3>Output</h3>
+            </div>
+            <div id="output_box">   
+                <p style="font-family: monospace;">
+                    50
+                   <br>
+                   <br>
+                   // prints only the value of the key "Apple" of the map called fruits
+                </p>
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Common Operations</h2><br>
+            <ul class="ops">
+                <li>
+                    <strong>insert()</strong> → Add a new key-value pair<br><br><br>
+                    <div class="vector_visual">
+                        <span>Apple → 50</span><br><br>
+                        <span><span class="odd2">"""</span> ↓ </span><br><br>
+                        <span>insert(Orange → 25)</span><br><br>
+                        <span><span class="odd2">"""</span>  ↓ </span><br><br>
+                        <span>Apple → 50</span><br>
+                        <span>Orange → 25</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">fruits.insert({"Orange", 25});</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>access ([])</strong> → Get the value using its key <br><br><br>
+                    <div class="vector_visual">
+                        <span>Apple → 50</span><br>
+                        <br>
+                        <span>fruits["Apple"]</span>
+                        <span> → </span>
+                        <span>Retrieve Value</span>
+                        <span> → </span>
+                        <span>50</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">fruits["Apple"];</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>find()</strong> → Searches the data by its key <br><br><br>
+                    <div class="vector_visual">
+                        <span>Apple</span><br>
+                        <span>Banana</span><br>
+                        <span>Mango</span><br>
+                        <span><span class="odd2">'''''</span>↓</span><br>
+                        <span>find(Banana)</span><br>
+                        <span><span class="odd2">'''''</span>↓</span><br>
+                        <span>[Searches the map]</span><br>
+                        <span><span class="odd2">'''''</span>↓</span><br>
+                        <span>Banana[✓ Found]</span>
+                    </div><br><br>  
+                     <p>Example:<span id="odd">""</span><span class="example_code_line">fruits.find("Banana");</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>erase()</strong> → Delete a key-value pair <br><br><br>
+                    <div class="vector_visual">
+                        <span>Apple → 50</span><br>
+                        <span>Banana → 30</span><br>
+                        <span>Mango → 20</span><br>
+                        <span><span class="odd2">'''''</span>↓</span><br>
+                        <span>erase(Banana)</span><br>
+                        <span><span class="odd2">'''''</span>↓</span><br>
+                        <span>[Removes the Banana key-value pair]</span><br>
+                        <span><span class="odd2">'''''</span>↓</span><br>
+                        <span>Apple → 50</span><br>
+                        <span>Mango → 20</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">fruits.erase("Banana");</span></p><br>
+                </li>
+                <li>
+                    <strong>Loop Through All Elements</strong><br><br><br>
+                    <div class="vector_visual">
+                        <span>┌─────────────┐</span><br>
+                        <span>│ Apple 50<span class="odd2">..................</span> │</span><br>
+                        <span>├─────────────┤</span><br>
+                        <span>│ Banana 30<span class="odd2">...............</span>│</span><br>
+                        <span>├─────────────┤</span><br>
+                        <span>│ Mango 50<span class="odd2">.................</span>│</span><br>
+                        <span>└─────────────┘</span><br>
+                        <span><span class="odd2">.................</span>↑</span><br>
+                        <span>Iterator visits each pair</span>
+                    </div><br><br>
+                    <p><span class="code_head"><b>Code:</b></span></p>
+                    <div class="code_snippet">
+                        <span class="code"> for(auto pair : fruits) </span><br>
+                        <span>{</span><br>
+                        <span class="code"> std::cout &lt;&lt; pair.first &lt;&lt; " : " &lt;&lt; pair.second &lt;&lt; "\n";</span><br>
+                        <span class="code">}</span>
+                    </div><br>
+                    <p><span class="code_head"><b>Output:</b></span></p>
+                    <div class="code_snippet">
+                        <span class="code">Apple : 50</span><br>
+                        <span class="code">Banana : 30</span><br>
+                        <span class="code">Orange : 25</span>
+                    </div><br><br>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <div class="real_use">
+                <h2>Real Use Case</h2><br>
+                <b>Map</b> is very useful in <b>real-world</b> projects. <br> 
+                It is used when your program needs a <b>container to store data oderly or to access data.</b><br>
+                <strong>Some use case:</strong><br><br><br>
+                <ol class="use_list">
+                    <li>
+                        <strong>Student Database:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>1001 → Alice</span><br><br>
+                            <span>1002 → Bob</span><br><br>
+                            <span>1003 → Charlie</span><br><br>
+                        </div><br><br>
+                        <p>◻︎ Student ID = Key</p>
+                        <p>◻︎ Student Name = Value</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Word Counter:</strong><br><br>
+                        <div class="vector_usage">
+                            <span>"hello" → 5</span><br><br>
+                            <span>"world" → 3</span><br>
+                        </div><br><br>
+                        <p>◻︎ Count how many times each word appears</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Game Scoreboard:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>"Player1" → 1200</span><br><br>
+                            <span>"Player2" → 850</span><br>
+                        </div><br><br>
+                        <p>◻︎ Store player scores</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Product Inventory:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>"Laptop" → 15</span><br><br>
+                            <span>"Mouse" → 40</span><br><br>
+                            <span>"Keyboard" → 25</span><br>
+                        </div><br><br>
+                        <p>◻︎ Track how many items are available.</p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Phone Book:</strong> <br><br>
+                        <div class="vector_usage">
+                            <span>"John" → "017xxxxxxxx"</span><br><br>
+                            <span>"Sarah" → "018xxxxxxxx"</span><br>
+                        </div><br><br>
+                        <p>◻︎ Find a phone number using a name.</p><br>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <br>
+            <div class="Imp_note">
+                <h2>Important Note</h2><br>
+                <p>
+                Keys in std::map are always sorted. <br>
+                <div class="vector_visual">
+                        <span><b>Inserted:</b></span><br><br>
+                        <span>Mango</span><br>
+                        <span>Apple</span><br>
+                        <span>Banana</span><br>
+                </div>
+                <div class="vector_visual">
+                    <span><b>Stored As:</b></span><br><br>
+                    <span>Apple</span><br>
+                    <span>Banana</span><br>
+                    <span>Mango</span><br>
+                </div>
+                </p>
+            </div>
+    </main>
+    <div class="next-prev">
+        <a href="libraries.html" id="link_back" class="nav_button">← Back to libraries</a>
+        <a href="threads.html" id="link_forward" class="nav_button">Next: thread →</a>
+    </div>
+</body>
+</html>

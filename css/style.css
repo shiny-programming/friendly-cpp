@@ -117,6 +117,9 @@ main{
     
 }
 footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #f8f3f9;
     height: 400px;
     padding-left: 20px;
@@ -151,6 +154,7 @@ footer h2{
 footer a{
     text-decoration: none;
 }
+
 
 @media (max-width: 1024px){
 

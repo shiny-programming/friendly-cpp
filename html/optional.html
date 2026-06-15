@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../pic/friendly-favicon.png">
+    <link rel="stylesheet" href="../css/optional.css">
+    <title>Friendly C++</title>
+</head>
+<body>
+    <header>
+        <div id="container">
+            <div id="div1"><img src="../pic/friendly-logo.png"></div>
+            <nav>
+                <div id="linkcontainer">
+                    <a href="../index.html" id="home">Home</a>
+                    <a href="libraries.html">Libraries</a>
+                    <a href="about.html">About page</a>
+                    <a href="contact.html">Contact</a>
+                </div> 
+            </nav>
+        </div>  
+    </header>
+    <br>
+    <br>
+    <br>
+    <main id="board">
+        <div id="section1">
+
+            <div id="sidebar">
+                <h3>Optional</h3>
+                <ul>
+                    <li>Info-box</li>
+                    <br>
+                    <li>How it works</li>
+                    <br>
+                    <li>Common Operations</li>
+                    <br>
+                    <li>Real Use Case</li>
+                    <br>
+                    <li>Important Note</li>
+                    <br>
+                    <li>Why Use Optional</li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="main-para">
+            <h1>optional</h1>
+            <p>A <b>container</b> that may contain a value or may contain nothing.</p>
+            <br>
+            
+            <h2>Quick Info Box:</h2><br>
+            <div class="info-box">
+                <p><strong>Header:</strong> &lt;optional&gt;</p>
+                <p><strong>Type:</strong> Utility (C++17)</p> 
+                <p><strong>Best for:</strong>Returning values that might not exist</p> 
+            </div><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>How it works</h2>
+            <br>
+            <p>Imagine a treasure box:</p>
+            <div class="flow">
+                <span class="s1">┌───────────┐</span><br>
+                <span class="s1">│<span id="odd">''''''''</span>  Value<span id="odd">......'''''</span> │</span><br>
+                <span class="s1">└───────────┘</span><br>
+                <br>
+                <span>OR</span><br>
+                <br>
+                <span class="s2">┌───────────┐</span><br>
+                <span class="s2">│<span id="odd">''''''''</span>  Empty<span id="odd">....''''''</span> │</span><br>
+                <span class="s2">└───────────┘</span>
+            </div><br><br>
+            <p>
+               An optional can either:<br>
+               <br>
+               ✅ Hold a value<br>
+               <br>
+               or<br>
+               <br>
+               ✅ Be empty<br>
+            </p>
+            <div class="flow">
+                <span class="s3">std::optional&lt;int&gt;</span><br><br>
+                <span class="s1">Case 1:</span><br>
+                <span class="s1">┌───────────┐</span><br>
+                <span class="s1">│<span id="odd">'''''''''''</span>  42<span id="odd">.........'''''</span> │</span><br>
+                <span class="s1">└───────────┘</span><br>
+                <span class="s1">Contains a Value</span><br>
+                <br>
+                <span>OR</span><br>
+                <br>
+                <span class="s2">Case 2:</span><br>
+                <span class="s2">┌───────────┐</span><br>
+                <span class="s2">│<span id="odd">''''''''</span>  Empty<span id="odd">....''''''</span> │</span><br>
+                <span class="s2">└───────────┘</span><br>
+                <span class="s2">Contains nothing</span>
+            </div><br><br>
+            <p>Here is an <b>example</b> for further comprehension-</p>
+            <br>
+            <br>
+            <div id="example_container">
+            <div id="example_header">
+                <h3>Example:</h3>
+            </div>
+            <div id="example">
+            <p>
+            #include &lt;optional&gt;;<br>
+            #include &lt;iostream&gt;;<br>
+            <br>
+            std::mutex mtx;<br>
+            <br>
+            int main()<br>
+            {<br>
+            <span class="example_deco">,,,,,,,</span>std::optional&lt;int&gt; age = 18;<br>
+            <br>
+            <span class="example_deco">,,,,,,,</span>if(age.has_value())<br>
+            <span class="example_deco">,,,,,,,</span>{<br>
+            <span class="example_deco">,,,,,,,,,,,,,,</span>std::cout &lt;&lt; *age;<br>
+            <span class="example_deco">,,,,,,,</span>)<br>
+            <br>
+            }</p>
+            </div>
+            </div>
+            <div id="output_container">
+            <div id="output_header">
+                <h3>Output</h3>
+            </div>
+            <div id="output_box">   
+                <p style="font-family: monospace;">
+                    18<br>
+                   <br>
+                   <br>
+                   // In this case the container "age" has value and that is 18(integer)
+                   <br>
+                   <span>┌───────────┐</span><br>
+                   <span>│<span class="example_deco">'''''''''''''''</span>  18<span class="example_deco">...........''</span> │</span><br>
+                   <span>└───────────┘</span><br>
+                </p>
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Common Operations</h2><br>
+            <ul class="ops">
+                <li>
+                    <strong>Create Optional</strong> → Create an optional value. <br><br><br>
+                    <div class="vector_visual">
+                        <span>optional&lt;int&gt;</span><br>
+                        <span><span class="odd2">''''''''''</span>↓</span><br>
+                        <span><span class="odd2">''''''''</span>18</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">std::optional&lt;int&gt; num = 18;</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>has_value()</strong> → Check if a value exists. <br><br><br>
+                    <div class="vector_visual">
+                        <span>[18] --▻ true</span><br>
+                        <span>[ ] --▻ false</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">num.has_value();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>value()</strong> → Get the stored value. <br><br><br>
+                    <div class="vector_visual">
+                        <span>[18]</span><br>
+                        <span><span class="odd2">'</span> ↓ </span><br>
+                        <span><span class="odd2">[</span>18</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">num.value();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>value_or()</strong> → Use a default value if the container is empty.<br><br><br>
+                    <div class="vector_visual">
+                        <span>Empty</span><br>
+                        <span><span class="odd2">''''''''</span>↓</span><br>
+                        <span>Default Value</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">num.value_or(0);</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>reset()</strong>→ Remove the stored value.<br><br><br>
+                    <div class="vector_visual">
+                        <span>Before: [18]</span><br>
+                        <span><span class="odd2">''''''''</span>↓</span><br>
+                        <span>reset()</span><br>
+                        <span><span class="odd2">''''''''</span>↓</span><br>
+                        <span>After: [ ]</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">num.reset();</span></p><br>
+                </li><br><br>
+                <li>
+                    <strong>emplace()</strong>→ Create/Replace a Value<br><br><br>
+                    <div class="vector_visual">
+                        <span>Before: [42]</span><br>
+                        <span><span class="odd2">''''''''</span>↓</span><br>
+                        <span>emplace(18)</span><br>
+                        <span><span class="odd2">''''''''</span>↓</span><br>
+                        <span>After: [18]</span>
+                    </div><br><br>
+                    <p>Example:<span id="odd">""</span><span class="example_code_line">num.emplace(18);</span></p><br>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <div class="real_use">
+                <h2>Real Use Case</h2><br>
+                <b>Optional</b> is useful whenever something <b>may exist or may not exist.</b><br><br> 
+                 Instead of using fake values like <b>-1</b>,<b>"Unknown"</b> or <b>nullptr</b> you can clearly say:<br>
+                 "<b>This value is optional</b>"<br><br>
+                <strong>Some use case:</strong><br><br><br>
+                <ol class="use_list">
+                    <li>
+                        <strong>User Profile Nickname:</strong> <br><br>
+                        <p>Not every user has a nickname.</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span><b>User Profile A</b></span><br><br>
+                            <span>Name: Alex</span><br>
+                            <span>Nickname: lex</span><br><br><br>
+                            <span><b>User Profile B</b></span><br><br>
+                            <span>Name: Alvin</span><br>
+                            <span>Nickname: (None)</span>
+                        </div><br><br>
+                        <p>Without std::optional, you'd need special values like: <br><br><br>
+                        <span class="example_code_line_2">nickname = "";</span></p><br>
+                        <p>Which can be confusing.</p>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Login System:</strong> <br><br>
+                        <p>Searching for a user by ID:</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span>Searching User #42...</span><br><br>
+                            <span>+-----------------+</span><br>
+                            <span>| <span class="odd3">''</span> Not Found <span class="odd3">''</span>|</span><br>
+                            <span>+-----------------+</span><br>
+                        </div><br><br>
+                        <h3>or,</h3>
+                        <div class="vector_usage">
+                            <span>Searching User #42...</span><br><br>
+                            <span>+-----------------+</span><br>
+                            <span>| <span class="odd3">'''''</span> Found <span class="odd3">''''''''</span>|</span><br>
+                            <span>+-----------------+</span><br>
+                        </div><br><br>
+                        <p>The fuunction can return:<br><br><br>
+                        <span class="example_code_line_2">return user;</span><br><br>
+                        or<br><br>
+                        <span class="example_code_line_2">return std::nullopt;</span></p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Weather Application:</strong> <br><br>
+                        <p>Sometimes weather data is unavailable..</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span>Today's Temperature</span><br><br>
+                            <span>+-----------------+</span><br>
+                            <span>| <span class="odd3">'''''''</span> 29°C <span class="odd3">'''''''',</span>|</span><br>
+                            <span>+-----------------+</span><br>
+                        </div><br><br>
+                        <h3>or,</h3>
+                        <div class="vector_usage">
+                            <span>Today's Temperature</span><br><br>
+                            <span>+--------------------------+</span><br>
+                            <span>| <span class="odd3">'''</span>Data Unavailable<span class="odd3">''''</span>|</span><br>
+                            <span>+--------------------------+</span><br>
+                        </div><br><br><br><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Game Development:</strong> <br><br>
+                        <p>A player may or may not have a target selected.</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span>Player</span><br><br>
+                            <span><span class="odd3">'''''</span>↓</span><br><br>
+                            <span>[ Goblin ]</span>
+                        </div><br><br>
+                        <h3>Or,</h3>
+                        <div class="vector_usage">
+                            <span>Player</span><br><br>
+                            <span>No target selected</span>
+                        </div><br><br>
+                        <p>No need for fake IDs like:<br><br><br>
+                        <span class="example_code_line_2">targetId = -1;</span></p><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Database Fields:</strong> <br><br>
+                        <p>Some users provide a phone number.</p>
+                        <p>Some don't.</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span><b>User Record A</b></span><br><br>
+                            <span>Name: Alice</span><br>
+                            <span>Phone: 123456789</span><br><br><br>
+                            <span><b>User Record B</b></span><br><br>
+                            <span>Name: Jame</span><br>
+                            <span>Phone: Not Provided</span>
+                        </div><br><br><br><br>
+                    </li><br>
+                    <br>
+                    <li>
+                        <strong>Configuration Settings:</strong> <br><br>
+                        <p>A game may allow custom FPS limits.</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span>Settings</span><br><br>
+                            <span>FPS Limit: 144</span>
+                        </div><br><br>
+                        <h3>or,</h3>
+                        <div class="vector_usage">
+                            <span>Settings</span><br><br>
+                            <span>FPS Limit: default</span>
+                        </div><br><br><br><br>
+                    </li><br>
+                    <li>
+                        <strong>API Responses</strong> <br><br>
+                        <p>An online service may not always return every field.</p>
+                        <br>
+                        <div class="vector_usage">
+                            <span>{</span><br>
+                            <span><span class="odd3">'''''''</span>"username": "Eric",</span><br>
+                            <span><span class="odd3">'''''''</span>"bio": "Loves C++",</span><br>
+                            <span>}</span>
+                        </div><br><br>
+                        <h3>or,</h3>
+                        <div class="vector_usage">
+                            <span>{</span><br>
+                            <span><span class="odd3">''''''''</span>"username": "Troy",</span><br>
+                            <span><span class="odd3">'''''''</span>"bio": null,</span><br>
+                            <span>}</span>
+                        </div><br><br><br><br>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <br>
+            <div class="Imp_note">
+                <h2>Important Note</h2><br>
+                <p>⚠ Check Before Using</p>
+                <p>Bad:</p>
+                <div class="vector_visual">
+                    <span>std::optional&lt;int&gt; num;</span><br><br>
+                    <span>std::cout &lt;&lt; num.value();</span>
+                </div><br><br>
+                <p>This can throw an exception because the optional is empty.</p>
+                <p>Good:</p>
+                <div class="vector_visual">
+                    <span>if(num.has_value())</span><br>
+                    <span>{</span><br>
+                    <span><span class="odd2">'''''</span>std::cout &lt;&lt; num.value();</span><br>
+                    <span>}</span>
+                </div><br><br><br>
+                <h4>When to Use and Not to Use Optional:</h4>
+                    <p>✅ Search results</p>
+                    <p>✅ User input</p>
+                    <p>✅ Database lookups</p>
+                    <p>✅ Functions that may fail</p>
+                    <p>✅ Replacing special values like -1</p>
+                    <p>❌ Not for values that must always exist</p>
+            </div>
+            <br>
+            <br>
+            <div class="more_info">
+                <h2>Why Optional Is Better Than Returning -1</h2><br>
+                <p>Without optional</p>
+                <div class="vector_visual">
+                    <span>Age Found → 25</span><br><br>
+                    <span>Age Not Found → -1</span>
+                </div><br><br>
+                <p>But what if -1 becomes meaningful?</p><br>
+                <p>With optional:</p>
+                <div class="vector_visual">
+                    <span>Age Found</span><br>
+                    <span><span class="odd2">''''''''''</span>↓</span><br>
+                    <span> optional&lt;int&gt;(25)</span><br><br><br>
+                    <span>Age Not Found</span><br>
+                    <span><span class="odd2">''''''''''</span>↓</span><br>
+                    <span> empty optional</span>
+                </div><br><br>
+                <p>Much clearer and safer.</p><br>
+            </div>
+        </div>
+    </main>
+    <div class="next-prev">
+        <a href="libraries.html" id="link_back" class="nav_button">← Back to libraries</a>
+        <a href="vector.html" id="link_forward" class="nav_button">Next: vector →</a>
+    </div>
+</body>
+</html>
